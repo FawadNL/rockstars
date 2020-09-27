@@ -1,0 +1,15 @@
+{
+  "name": "rockstars",
+  "version": "1.0.0",
+  "description": "This is The Rockstars IT server using json db.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.1",
+    "path": "^0.12.7"
+  }
+}
