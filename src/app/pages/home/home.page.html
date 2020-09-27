@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Rockstars Music</ion-title>
+    </ion-toolbar>
+    <ion-segment (ionChange)="segmentChanged($event)" [value]="segmentValue">
+        <ion-segment-button value="artists">
+            <ion-label>Artists</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="playlist">
+            <ion-label>Playlists</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="10">
+                <ion-searchbar [placeholder]="searchPlaceHolder" debounce="600" (ionChange)="searchArea($event)">
+                </ion-searchbar>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-header>
+
+<ion-content>
+    <div [hidden]="segmentValue !=='playlist'">
+
+        <div style="height: 100%">
+            <ion-spinner animated style="width: 100%" *ngIf="loader"></ion-spinner>
+        </div>
+
+        <div *ngIf="!loader">
+            <ion-list class="ion-padding">
+                <ion-item (click)="addPlaylist()">
+                    <ion-icon name="add" slot="start"></ion-icon>
+                    <ion-label>
+                        Create Playlist
+                    </ion-label>
+                </ion-item>
+
+                <ion-item *ngFor="let s of playList">
+                    {{s.name}}
+                    <ion-icon name="play-forward-outline" slot="end"></ion-icon>
+                    <ion-icon name="close" slot="end" (click)="deletePlaylist(s)"></ion-icon>
+                </ion-item>
+            </ion-list>
+        </div>
+    </div>
+
+    <div [hidden]="segmentValue !=='artists'">
+        <div style="height: 100%">
+            <ion-spinner animated style="width: 100%" *ngIf="loader"></ion-spinner>
+        </div>
+
+        <ion-list class="ion-padding">
+
+
+            <ion-item *ngFor="let a of artistsList" (click)="openArtistDetailsPage(a)">
+                {{a.name}}
+                <ion-icon name="play-forward-outline" slot="end"></ion-icon>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll (ionInfinite)="loadMoreArtists($event)">
+            <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+
+</ion-content>

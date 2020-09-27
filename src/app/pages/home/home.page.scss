@@ -1,0 +1,16 @@
+ion-segment {
+    // --indicator-color: var(--ion-rockstar-yellow) !important;
+}
+
+ion-segment-button {
+    --indicator-color: var(--ion-rockstar-yellow) !important;
+    --color-checked: var(--ion-color-dark-contrast) !important;
+}
+
+ion-searchbar {
+    --background: var(--ion-rockstar-grey);
+}
+
+.searchButton {
+    padding: 16px 0 16px 16px;
+}

@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+
+        <ion-title class="ion-text-center">Artist Details</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <img [src]="logoUrl" alt="">
+
+    <ion-row>
+        <h1 class="artist-title" *ngIf="artist.name"> {{artist.name}}</h1>
+    </ion-row>
+
+
+    <div style="height: 100%" *ngIf="loader">
+        <ion-spinner animated style="width: 100%"></ion-spinner>
+    </div>
+
+    <ion-list class="ion-padding" *ngIf="!loader">
+        <ion-item *ngFor="let s of songsList">
+            {{s.name}}
+            <ion-icon name="play-forward-outline" slot="end"></ion-icon>
+            <ion-icon name="add" slot="end" (click)="addSong(s)"></ion-icon>
+        </ion-item>
+    </ion-list>
+</ion-content>
