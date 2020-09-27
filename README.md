@@ -1,8 +1,8 @@
 # IT Rockstars Music App
 
-The Rockstars Music app is a web application developed to manage playlits and songs.
+The Rockstars Music app is a responsive web application developed with Ionic + Angular, to manage playlits and songs.
 
-### What features included ?
+### Features included
 
 - User can search artist by artist name.
 - On click of Artist name, Artist details page will open and Songs by an artist can be found on same page.
@@ -10,7 +10,7 @@ The Rockstars Music app is a web application developed to manage playlits and so
 - On click of playlist name user can go to playlist details page and get songs added to a playlist.
 - To delete songs from playlist swipe songs name to left on playlist details page, this will show the delete button.
 
-### Requirements to run app?
+### Requirements to run app
 
 - NodeJS environment preferably latest version but minimum version >=12.
 - Ionic must be installed version >=6.4
@@ -31,12 +31,13 @@ Go to project folder and run these commands in git bash:
 Now that server is running, open a second Git Bash in the app directory and run:
 
 - ionic serve
-This will load the app in the browser
+
+This will load the app in browser
 
 ### Dependencies
 
-- NodeJS v>= 12
-- ionic version >= 6.
+- NodeJS v>= 12: https://nodejs.org/en/
+- Ionic version >= 6.4: https://ionicframework.com/docs/cli
 - json-server globally installed: npm i -g json-server
 - Any good editor preferably vscode editor.
 
