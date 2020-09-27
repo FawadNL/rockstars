@@ -123,6 +123,17 @@ export class HomePage implements OnInit {
   }
 
   /**
+   * @description open playlist details page.
+   */
+  openDetailsPage(playlist) {
+    this.navCtrl.navigateForward('/playlist-details', {
+      state: {
+        playlist: playlist,
+      },
+    })
+  }
+
+  /**
    * @description function to open artist details page.
    */
   openArtistDetailsPage(artist: Artists) {

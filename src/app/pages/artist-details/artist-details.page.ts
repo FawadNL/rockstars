@@ -39,7 +39,6 @@ export class ArtistDetailsPage implements OnInit {
 
   getPlaylist() {
     const playList = this.userService.getPlayList()
-    console.log(playList)
     if (playList) {
       this.inputRadio = playList.map((p) => {
         return {
@@ -55,7 +54,6 @@ export class ArtistDetailsPage implements OnInit {
   }
 
   async addSong(song) {
-    console.log(song)
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Please select playlist',
@@ -120,5 +118,11 @@ export class ArtistDetailsPage implements OnInit {
         )
       },
     )
+  }
+
+  formatDate(timeInms) {
+    return ` ${Math.floor(timeInms / 1000 / 60)} : ${Math.floor(
+      (timeInms / 1000) % 60,
+    )}`
   }
 }

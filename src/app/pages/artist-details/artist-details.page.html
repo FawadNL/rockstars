@@ -23,7 +23,20 @@
 
     <ion-list class="ion-padding" *ngIf="!loader">
         <ion-item *ngFor="let s of songsList">
-            {{s.name}}
+
+            <ion-note slot="start">
+                {{s.id}}
+            </ion-note>
+            <ion-label>
+                <h2>{{s.name}}</h2>
+                <p>{{s.album}} </p>
+
+            </ion-label>
+            <ion-note slot="end" *ngIf="s.duration">
+                {{formatDate(s.duration)}}
+            </ion-note>
+
+
             <ion-icon name="play-forward-outline" slot="end"></ion-icon>
             <ion-icon name="add" slot="end" (click)="addSong(s)"></ion-icon>
         </ion-item>

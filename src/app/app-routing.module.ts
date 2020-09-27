@@ -32,6 +32,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'playlist-details',
+    loadChildren: () =>
+      import('./pages/playlist-details/playlist-details.module').then(
+        (m) => m.PlaylistDetailsPageModule,
+      ),
+  },
+  {
     path: '**',
     redirectTo: 'pages-not-found',
   },
