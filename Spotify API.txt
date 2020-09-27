@@ -1,4 +1,0 @@
-client id: 6a82f34bb13f4ced8f8ecee61234ea54
-client secret: 2ce55b5f3a584852b8c0cada6a79054b
-
-https://developer.spotify.com/documentation/web-api/
