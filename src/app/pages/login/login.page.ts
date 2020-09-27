@@ -38,12 +38,11 @@ export class LoginPage implements OnInit {
     });
   }
 
+  /**
+   * @description Function to close the modal
+   */
   navigateBack() {
     this.modalController.dismiss();
   }
-  register(form) {
-    // this.authService.register(form.value).subscribe((res) => {
-    //   this.router.navigateByUrl('home');
-    // });
-  }
+
 }
