@@ -9,8 +9,8 @@ describe('NotFoundPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NotFoundPage ],
-      imports: [IonicModule.forRoot()]
+      declarations: [NotFoundPage],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NotFoundPage);

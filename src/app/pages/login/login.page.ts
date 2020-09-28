@@ -3,7 +3,7 @@ import {
   FormBuilder,
   FormGroup,
   Validators,
-  FormControl
+  FormControl,
 } from '@angular/forms';
 import { Platform, ModalController } from '@ionic/angular';
 
@@ -22,8 +22,7 @@ export class LoginPage implements OnInit {
     this.initFormControl();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   /**
    * @description Function to init the form control.
@@ -32,9 +31,12 @@ export class LoginPage implements OnInit {
     this.loginForm = this.fb.group({
       email: new FormControl('', [
         Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
       ]),
-      user_pass: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)]))
+      user_pass: new FormControl(
+        '',
+        Validators.compose([Validators.required, Validators.minLength(6)])
+      ),
     });
   }
 
@@ -44,5 +46,4 @@ export class LoginPage implements OnInit {
   navigateBack() {
     this.modalController.dismiss();
   }
-
 }

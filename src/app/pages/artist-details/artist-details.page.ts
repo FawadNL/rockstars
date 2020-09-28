@@ -1,44 +1,45 @@
-import { Component, OnInit } from '@angular/core'
-import { AppConfig } from 'src/app/config/config'
-import { Router } from '@angular/router'
-import { Songs, Artists } from 'src/app/interfaces'
+import { Component, OnInit } from '@angular/core';
+import { AppConfig } from 'src/app/config/config';
+import { Router } from '@angular/router';
+import { Songs, Artists } from 'src/app/interfaces';
 import {
   SongsService,
   AlertService,
   ArtistService,
   UserService,
-} from 'src/app/services'
-import { NavController, Platform, AlertController } from '@ionic/angular'
+} from 'src/app/services';
+import { NavController, Platform, AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-artist-details',
   templateUrl: './artist-details.page.html',
   styleUrls: ['./artist-details.page.scss'],
 })
 export class ArtistDetailsPage implements OnInit {
-  public logoUrl = AppConfig.imgUrl
-  public artist: any
-  public songsList: Songs[]
+  public logoUrl = AppConfig.imgUrl;
+  public artist;
+  public songsList: Songs[];
   // flag to check if loader is active
-  public loader = true
-  public inputRadio = []
-  public playlistSongs = []
+  public loader = true;
+  public inputRadio = [];
+  public playlistSongs = [];
   constructor(
     private router: Router,
     private alertService: AlertService,
     private songService: SongsService,
     public alertController: AlertController,
-    private userService: UserService,
+    private userService: UserService
   ) {}
 
   ngOnInit() {
-    const state = this.router.getCurrentNavigation().extras.state
-    this.artist = state && state.artist ? state.artist : {}
-    this.getSongs(this.artist.name)
-    this.getPlaylist()
+    const extras: any = this.router.getCurrentNavigation();
+    const state = extras.state;
+    this.artist = state && state.artist ? state.artist : {};
+    this.getSongs(this.artist.name);
+    this.getPlaylist();
   }
 
   getPlaylist() {
-    const playList = this.userService.getPlayList()
+    const playList = this.userService.getPlayList();
     if (playList) {
       this.inputRadio = playList.map((p) => {
         return {
@@ -46,11 +47,11 @@ export class ArtistDetailsPage implements OnInit {
           type: 'radio',
           label: p.name,
           value: p.id,
-        }
-      })
+        };
+      });
     }
-    const playlistSongs = this.userService.getPlaylistSongs()
-    this.playlistSongs = playlistSongs ? playlistSongs : []
+    const playlistSongs = this.userService.getPlaylistSongs();
+    this.playlistSongs = playlistSongs ? playlistSongs : [];
   }
 
   async addSong(song) {
@@ -65,7 +66,7 @@ export class ArtistDetailsPage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
-            console.log('Confirm Cancel')
+            console.log('Confirm Cancel');
           },
         },
         {
@@ -76,13 +77,13 @@ export class ArtistDetailsPage implements OnInit {
                 id: `${playlistId}_${song.id}`,
                 playid: playlistId,
                 song,
-              })
+              });
             }
           },
         },
       ],
-    })
-    await alert.present()
+    });
+    await alert.present();
   }
 
   /**
@@ -90,9 +91,9 @@ export class ArtistDetailsPage implements OnInit {
    */
   addSongToPlayList(playList) {
     if (this.playlistSongs.filter((p) => playList.id === p.id).length <= 0) {
-      this.playlistSongs.push(playList)
+      this.playlistSongs.push(playList);
     }
-    this.userService.saveSongsToPlaylist(this.playlistSongs)
+    this.userService.saveSongsToPlaylist(this.playlistSongs);
   }
 
   /**
@@ -102,27 +103,27 @@ export class ArtistDetailsPage implements OnInit {
    * @return void
    */
   getSongs(artistName) {
-    this.loader = true
+    this.loader = true;
     this.songService.getAllSongsOfArtist(artistName).subscribe(
       (songs: Songs[]) => {
         if (songs.length > 0) {
-          this.songsList = songs
+          this.songsList = songs;
         } else {
-          this.alertService.showAlert('No songs available for this artist')
+          this.alertService.showAlert('No songs available for this artist');
         }
-        this.loader = false
+        this.loader = false;
       },
       (err) => {
         this.alertService.showAlert(
-          'Something went wrong please try again later !',
-        )
-      },
-    )
+          'Something went wrong please try again later !'
+        );
+      }
+    );
   }
 
   formatDate(timeInms) {
     return ` ${Math.floor(timeInms / 1000 / 60)} : ${Math.floor(
-      (timeInms / 1000) % 60,
-    )}`
+      (timeInms / 1000) % 60
+    )}`;
   }
 }

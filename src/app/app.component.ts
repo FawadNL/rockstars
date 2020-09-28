@@ -6,22 +6,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppConfig } from './config/config';
 import { LoginPage } from '../app/pages/login/login.page';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss']
+  styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public logoUrl = AppConfig.imgUrl;
-  public appPages = [
-    {
-      title: 'Login',
-      url: '/folder/Inbox',
-      icon: 'mail'
-    },
-  ];
 
   constructor(
     private platform: Platform,
@@ -42,16 +34,10 @@ export class AppComponent implements OnInit {
   async openLogin() {
     const modal = await this.modalController.create({
       component: LoginPage,
-      cssClass: 'my-custom-class'
+      cssClass: 'my-custom-class',
     });
     return await modal.present();
   }
 
-
-  ngOnInit() {
-    const path = window.location.pathname.split('folder/')[1];
-    if (path !== undefined) {
-      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
-    }
-  }
+  ngOnInit() {}
 }
