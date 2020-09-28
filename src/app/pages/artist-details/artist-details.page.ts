@@ -31,13 +31,15 @@ export class ArtistDetailsPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    const extras: any = this.router.getCurrentNavigation();
-    const state = extras.state;
+    const state: any = this.router.getCurrentNavigation().extras.state;
     this.artist = state && state.artist ? state.artist : {};
     this.getSongs(this.artist.name);
     this.getPlaylist();
   }
 
+  /**
+   * @description Function is used for getting all stored playlist from local storage.
+   */
   getPlaylist() {
     const playList = this.userService.getPlayList();
     if (playList) {
@@ -54,6 +56,10 @@ export class ArtistDetailsPage implements OnInit {
     this.playlistSongs = playlistSongs ? playlistSongs : [];
   }
 
+  /**
+   * @description Function to select open playlist alert.
+   * @param song song object to add
+   */
   async addSong(song) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
@@ -121,6 +127,11 @@ export class ArtistDetailsPage implements OnInit {
     );
   }
 
+  /**
+   * @description return how many minute and second have for song duration.
+   *
+   * @param timeInms time in millisecond.
+   */
   formatDate(timeInms) {
     return ` ${Math.floor(timeInms / 1000 / 60)} : ${Math.floor(
       (timeInms / 1000) % 60
