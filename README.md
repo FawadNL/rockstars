@@ -1,14 +1,14 @@
 # IT Rockstars Music App
 
-The Rockstars Music app is a responsive web application developed with Ionic + Angular, to manage playlits and songs.
+The Rockstars Music app is a responsive web application developed with Ionic + Angular, to manage playlists.
 
 ### Features included
 
-- User can search artist by artist name.
-- On click of Artist name, Artist details page will open and Songs by an artist can be found on same page.
-- User can select playlist tab where user can create playlists and add songs to his playlist.
+- User can search Artist by Artist name.
+- Artist details page will open with all the songs of that artist.
+- User can select playlist tab where user can create playlists and add songs to his/her playlist.
 - On click of playlist name user can go to playlist details page and get songs added to a playlist.
-- To delete songs from playlist swipe songs name to left on playlist details page, this will show the delete button.
+- To delete songs from playlist, swipe the song to left on playlist details page to see the delete option. 
 
 ### Requirements to run app
 
@@ -47,14 +47,15 @@ Default there is db.json in server/db folder used for database with json-server.
 
 ### How to run tests
 
-For running test cases there are spec file in every component and services to allow unit and e2e testing.
+For running test cases there are spec file in every component and services to allow unit testing.
 
 ### Deployment instructions
 
 For deployment of this app we can build app using command
 
 - ionic build --prod
-  Then there will be www folder created and that can be deployed to any hosting provider.
+
+Then the www folder is created and that can be deployed to any hosting provider.
 
 We can deploy as pwa for more please check official docs[https://ionicframework.com/docs/angular/pwa]
 
