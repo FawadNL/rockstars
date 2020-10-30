@@ -28,7 +28,7 @@ export class ArtistDetailsPage implements OnInit {
     private songService: SongsService,
     public alertController: AlertController,
     private userService: UserService
-  ) {}
+  ) { }
 
   ngOnInit() {
     const state: any = this.router.getCurrentNavigation().extras.state;
@@ -127,14 +127,4 @@ export class ArtistDetailsPage implements OnInit {
     );
   }
 
-  /**
-   * @description return how many minute and second have for song duration.
-   *
-   * @param timeInms time in millisecond.
-   */
-  formatDate(timeInms) {
-    return ` ${Math.floor(timeInms / 1000 / 60)} : ${Math.floor(
-      (timeInms / 1000) % 60
-    )}`;
-  }
 }

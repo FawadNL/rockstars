@@ -32,7 +32,7 @@
 
             </ion-label>
             <ion-note class="song-duration" slot="end" *ngIf="s.duration">
-                {{formatDate(s.duration)}}
+                {{s.duration | formatDuration}}
             </ion-note>
 
             <ion-icon name="add" slot="end" (click)="addSong(s)"></ion-icon>
