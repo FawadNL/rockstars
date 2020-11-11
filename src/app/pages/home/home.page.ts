@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  SongsService,
   AlertService,
   ArtistService,
   UserService,
 } from 'src/app/services';
-import { Songs, Artists, Playlist } from 'src/app/interfaces';
-import { NavController, Platform, AlertController } from '@ionic/angular';
+import { Artists, Playlist } from 'src/app/interfaces';
+import { NavController, AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -18,7 +17,7 @@ export class HomePage implements OnInit {
   public artistsList: Artists[];
   public playList: Playlist[] = [];
   public searchPlaceHolder = 'Search Artists';
-  //flat to check if loader is active.
+  // flat to check if loader is active.
   public loader = true;
   private page = 1;
   private limit = 20;
@@ -28,7 +27,7 @@ export class HomePage implements OnInit {
     private navCtrl: NavController,
     public alertController: AlertController,
     private userService: UserService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getArtists();
@@ -106,6 +105,7 @@ export class HomePage implements OnInit {
     this.artistService.getAllArtists(this.page, this.limit).subscribe(
       (artists: Artists[]) => {
         if (artists.length > 0) {
+          // We are using spread operator so we can append new data and new coming data from server api call which can be rendered easily.
           this.artistsList = [...this.artistsList, ...artists];
         } else {
           // If no more data to load keep page count as old.
@@ -128,7 +128,7 @@ export class HomePage implements OnInit {
   openDetailsPage(playlist = {}) {
     this.navCtrl.navigateForward('/playlist-details', {
       state: {
-        playlist: playlist,
+        playlist
       },
     });
   }
@@ -139,7 +139,7 @@ export class HomePage implements OnInit {
   openArtistDetailsPage(artist: Artists) {
     this.navCtrl.navigateForward('/artist-details', {
       state: {
-        artist: artist,
+        artist
       },
     });
   }
@@ -188,7 +188,7 @@ export class HomePage implements OnInit {
    * @description function to save data
    */
   saveplayList(playlist) {
-    //Creating a random string as id
+    // Creating a random string as id
     const playListId =
       Math.random().toString(36).substring(2, 15) +
       Math.random().toString(36).substring(2, 15);

@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core'
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StorageService {
-  constructor() {}
+  constructor() { }
 
   /**
    * @description function for seting data to local Storage
@@ -12,18 +12,18 @@ export class StorageService {
    * @param value value what to store
    */
   setData(key: string, value: string) {
-    window.localStorage.setItem(key, value)
+    window.localStorage.setItem(key, value);
   }
 
   /**
    * @description Function to get data from localstorage .
    */
   getStoredJsonData(key): any | false {
-    const data = this.getData(key)
+    const data = this.getData(key);
     if (data && data.length > 20) {
-      return JSON.parse(data)
+      return JSON.parse(data);
     } else {
-      return false
+      return false;
     }
   }
 
@@ -32,7 +32,7 @@ export class StorageService {
    * @param key key where data is stored.
    */
   getData(key: string): any {
-    return window.localStorage.getItem(key)
+    return window.localStorage.getItem(key);
   }
 
   /**
@@ -40,6 +40,6 @@ export class StorageService {
    * @param key key to get value.
    */
   remove(key: string) {
-    window.localStorage.removeItem(key)
+    window.localStorage.removeItem(key);
   }
 }
