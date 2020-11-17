@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
-  Validators,
-  FormControl,
+  Validators
 } from '@angular/forms';
-import { Platform, ModalController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -22,21 +21,21 @@ export class LoginPage implements OnInit {
     this.initFormControl();
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   /**
    * @description Function to init the form control.
    */
   initFormControl() {
     this.loginForm = this.fb.group({
-      email: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
-      ]),
-      user_pass: new FormControl(
+      email: [
         '',
-        Validators.compose([Validators.required, Validators.minLength(6)])
-      ),
+        [
+          Validators.required,
+          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
+        ],
+      ],
+      user_pass: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
