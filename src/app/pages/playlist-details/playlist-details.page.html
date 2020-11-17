@@ -31,7 +31,7 @@
 
                     </ion-label>
                     <ion-note slot="end" *ngIf="ps.song.duration">
-                        {{formatDate(ps.song.duration)}}
+                        {{ps.song.duration | formatDuration}}
                     </ion-note>
                 </ion-item>
             </ion-item-sliding>

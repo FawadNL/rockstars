@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AppConfig } from 'src/app/config/config';
+import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
-import { Songs, Artists } from 'src/app/interfaces';
+import { Songs } from 'src/app/interfaces';
 import {
   SongsService,
   AlertService,
@@ -15,7 +15,7 @@ import { NavController, Platform, AlertController } from '@ionic/angular';
   styleUrls: ['./artist-details.page.scss'],
 })
 export class ArtistDetailsPage implements OnInit {
-  public logoUrl = AppConfig.imgUrl;
+  public logoUrl = environment.imgUrl;
   public artist;
   public songsList: Songs[];
   // flag to check if loader is active

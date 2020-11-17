@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { URLs } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class ArtistService {
   getAllArtists(page, limit, artistName = '') {
     const searchParams = artistName ? `&name_like=${artistName}` : '';
     return this.httpClient.get(
-      `${URLs.apiURL}/artists?_page=${page}&_limit=${limit}${searchParams}`,
+      `${environment.apiURL}/artists?_page=${page}&_limit=${limit}${searchParams}`,
     );
   }
 }

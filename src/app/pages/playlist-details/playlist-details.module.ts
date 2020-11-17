@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { PlaylistDetailsPageRoutingModule } from './playlist-details-routing.module';
 
 import { PlaylistDetailsPage } from './playlist-details.page';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PlaylistDetailsPageRoutingModule
+    PlaylistDetailsPageRoutingModule,
+    PipesModule
   ],
   declarations: [PlaylistDetailsPage]
 })
-export class PlaylistDetailsPageModule {}
+export class PlaylistDetailsPageModule { }

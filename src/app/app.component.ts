@@ -1,9 +1,9 @@
+import { environment } from 'src/environments/environment';
 import { Component, OnInit } from '@angular/core';
 
 import { Platform, ModalController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { AppConfig } from './config/config';
 import { LoginPage } from '../app/pages/login/login.page';
 
 @Component({
@@ -13,7 +13,7 @@ import { LoginPage } from '../app/pages/login/login.page';
 })
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
-  public logoUrl = AppConfig.imgUrl;
+  public logoUrl = environment;
 
   constructor(
     private platform: Platform,
@@ -39,5 +39,5 @@ export class AppComponent implements OnInit {
     return await modal.present();
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

@@ -29,8 +29,4 @@ describe('PlaylistDetailsPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('formatDate function must be defined', () => {
-    expect(component.formatDate).toBeDefined();
-  });
 });

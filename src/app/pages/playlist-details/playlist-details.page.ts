@@ -11,7 +11,7 @@ export class PlaylistDetailsPage implements OnInit {
   public playlistSongs = [];
   public allPlaylistSongs = [];
   public playlist;
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     const state = this.router.getCurrentNavigation().extras
@@ -41,11 +41,5 @@ export class PlaylistDetailsPage implements OnInit {
       (ps) => ps.id !== item.id
     );
     this.userService.saveSongsToPlaylist(this.allPlaylistSongs);
-  }
-
-  formatDate(timeInms) {
-    return ` ${Math.floor(timeInms / 1000 / 60)} : ${Math.floor(
-      (timeInms / 1000) % 60
-    )}`;
   }
 }

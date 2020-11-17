@@ -1,7 +1,5 @@
 export const environment = {
-  production: true
-};
-
-export const URLs = {
+  production: true,
+  imgUrl: 'assets/Team-Rockstars-IT-logo.png',
   apiURL: 'http://localhost:3400'
 };

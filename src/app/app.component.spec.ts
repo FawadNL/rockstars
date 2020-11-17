@@ -49,6 +49,6 @@ describe('AppComponent', () => {
     await fixture.detectChanges();
     const app = fixture.nativeElement;
     const menuItems = app.querySelectorAll('ion-item');
-    // expect(menuItems[0].textContent).toContain('Login');
+    expect(menuItems[0].textContent).toContain('Login');
   });
 });

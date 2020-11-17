@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { URLs } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
@@ -21,7 +21,7 @@ export class SongsService {
     const searchParams = songTitle ? `&name_like=${songTitle}` : '';
 
     return this.httpClient.get(
-      `${URLs.apiURL}/songs?_page=${page}&_limit=${limit}${searchParams}`,
+      `${environment.apiURL}/songs?_page=${page}&_limit=${limit}${searchParams}`,
     );
   }
 
@@ -31,6 +31,6 @@ export class SongsService {
    * @param  string  artistName Artist name.
    */
   getAllSongsOfArtist(artistName: string) {
-    return this.httpClient.get(`${URLs.apiURL}/songs?artist=${artistName}`);
+    return this.httpClient.get(`${environment.apiURL}/songs?artist=${artistName}`);
   }
 }
