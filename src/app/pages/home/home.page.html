@@ -6,17 +6,18 @@
         <ion-title>Rockstars Music</ion-title>
     </ion-toolbar>
     <ion-segment (ionChange)="segmentChanged($event)" [value]="segmentValue">
-        <ion-segment-button value="artists">
+        <ion-segment-button value="artists" class="segment-btn">
             <ion-label>Artists</ion-label>
         </ion-segment-button>
-        <ion-segment-button value="playlist">
+        <ion-segment-button value="playlist" class="segment-btn">
             <ion-label>Playlists</ion-label>
         </ion-segment-button>
     </ion-segment>
     <ion-grid>
         <ion-row>
             <ion-col size="12">
-                <ion-searchbar [placeholder]="searchPlaceHolder" debounce="600" (ionChange)="searchArea($event)">
+                <ion-searchbar [placeholder]="searchPlaceHolder" debounce="600" (ionChange)="searchArea($event)"
+                    class="search-bar">
                 </ion-searchbar>
             </ion-col>
         </ion-row>
