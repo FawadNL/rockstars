@@ -13,7 +13,7 @@
 <ion-content class="main-content">
 
   <form [formGroup]="loginForm">
-    <ion-item>
+    <ion-item class="input-form-item">
       <ion-input placeholder="Your Email Address" formControlName="email" type="email"></ion-input>
       <ion-icon name="checkmark-outline" slot="end" color="success" *ngIf="
       loginForm.get('email').valid
@@ -23,7 +23,7 @@
         loginForm.get('email').invalid
       "></ion-icon>
     </ion-item>
-    <ion-item>
+    <ion-item class="input-form-item">
       <ion-input placeholder="Your Password" type="password" formControlName="user_pass"></ion-input>
       <ion-icon name="checkmark-outline" slot="end" color="success" *ngIf="
       loginForm.get('user_pass').valid
@@ -35,20 +35,21 @@
     </ion-item>
     <span href="" class="gm-forgot-link" (click)="forgotPassword()"> Forgot password?</span>
 
-    <ion-button type="submit" class="gm-login-btn" (click)="navigateBack()" [disabled]="loginForm.invalid">Login</ion-button>
+    <ion-button type="submit" class="gm-login-btn" (click)="navigateBack()" [disabled]="loginForm.invalid">Login
+    </ion-button>
   </form>
 
   <h3 class="ion-text-center">~ Social Login ~</h3>
-  <ion-row>
+  <ion-row class="social-login-buttons">
     <ion-col>
       <ion-button class="gm-google-btn" (click)="navigateBack()">
-        <ion-icon slot="icon-only" name="logo-google"></ion-icon>
+        <ion-icon slot="icon-only" name="logo-google" class="btn-icon"></ion-icon>
         Google
       </ion-button>
     </ion-col>
     <ion-col>
       <ion-button class="gm-facebook-btn" (click)="navigateBack()">
-        <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+        <ion-icon slot="icon-only" name="logo-facebook" class="btn-icon"></ion-icon>
         Facebook
       </ion-button>
     </ion-col>

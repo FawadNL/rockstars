@@ -1,104 +1,97 @@
 .signup-btn {
-    color: var(--ion-rockstar-yellow);
+  color: var(--ion-rockstar-yellow);
 }
 
-ion-item {
-    --background: transparent;
+.input-form-item {
+  --background: transparent;
 }
 
-ion-row {
-    margin-top: 5%;
+.social-login-buttons {
+  margin-top: 5%;
 }
 
 .gm-close-btn {
-    padding-left: 10%;
-    font-size: 40px;
-    padding-top: 10%;
-    color: #3880ff;
-    font-weight: 800;
+  padding-left: 10%;
+  font-size: 40px;
+  padding-top: 10%;
+  color: #3880ff;
+  font-weight: 800;
 }
 
 h2 {
-    font-weight: 800;
-    color: #ffffff;
+  font-weight: 800;
+  color: #ffffff;
 }
 
 a {
-    text-decoration: none;
-
+  text-decoration: none;
 }
 
 h5 {
-    color: #ffffff;
-    font-weight: 500;
-    margin-top: 10%;
-
+  color: #ffffff;
+  font-weight: 500;
+  margin-top: 10%;
 }
 
 h3 {
-    color: #ffffff;
-    font-weight: 500;
+  color: #ffffff;
+  font-weight: 500;
 }
 
 .gm-logo {
-    height: 80px;
+  height: 80px;
 }
 
 .gm-login-btn {
-    text-align: center;
-    display: block;
-    --background: var(--ion-rockstar-yellow);
-    margin: 10%;
+  text-align: center;
+  display: block;
+  --background: var(--ion-rockstar-yellow);
+  margin: 10%;
 }
 
 .gm-forgot-link {
-    float: right;
-    color: #ffffff;
-    padding-right: 10px;
-    padding-top: 10px;
+  float: right;
+  color: #ffffff;
+  padding-right: 10px;
+  padding-top: 10px;
 }
 
-// ion-input {
-//     --placeholder-color: #ffffff;
-//     --placeholder-font-weight:500;
-// }
-
 .gm-google-btn {
-    ion-icon {
-        margin-right: 5px;
-    }
+  .btn-icon {
+    margin-right: 5px;
+  }
 
-    float: right;
-    width: 80%;
-    --background: #d34836;
-    text-transform: none;
+  float: right;
+  width: 80%;
+  --background: #d34836;
+  text-transform: none;
 }
 
 .gm-facebook-btn {
-    ion-icon {
-        margin-right: 5px;
-    }
+  .btn-icon {
+    margin-right: 5px;
+  }
 
-    text-transform: none;
-    float: left;
-    width: 80%;
-    --background: #4267B2;
+  text-transform: none;
+  float: left;
+  width: 80%;
+  --background: #4267b2;
 }
 
 .error {
-    padding: 10px 0px 0px 10px;
-    color: #f04141;
+  padding: 10px 0px 0px 10px;
+  color: #f04141;
 }
 
 .terms {
-    color: #feca01;
+  color: #feca01;
 }
 
 .gm-privacy {
-    float: left;
+  float: left;
 }
 
 .gm-terms {
-    float: right;
-    padding-right: 16px;
+  float: right;
+  padding-right: 16px;
 }
