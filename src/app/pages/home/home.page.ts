@@ -170,7 +170,9 @@ export class HomePage implements OnInit {
           text: 'Ok',
           handler: (data) => {
             // Call save playlist.
-            this.saveplayList(data.playlist);
+            if (data.playlist) {
+              this.saveplayList(data.playlist);
+            }
           },
         },
       ],
