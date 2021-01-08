@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+
 export interface Songs {
   id: number;
   name: string;
@@ -24,4 +26,9 @@ export interface Playlist {
 export interface PlayListSong {
   playlistId: string;
   song: Songs;
+}
+
+
+export interface ArtistListCache {
+  [key: string]: Observable<Array<Artists>>
 }
