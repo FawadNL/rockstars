@@ -57,8 +57,7 @@ export class HomePage implements OnInit {
    * @description Function to get artist list
    */
   getPlayList() {
-    const playlist = this.userService.getPlayList();
-    this.playList = playlist ? playlist : [];
+    this.playList = this.userService.getPlayList();
   }
 
   /**
@@ -71,7 +70,6 @@ export class HomePage implements OnInit {
         (artists: Artists[]) => {
           if (artists.length > 0) {
             this.artistsList = artists;
-            console.log(this.artistsList);
           } else {
             this.alertService.showAlert('Unable to load artists');
           }
@@ -148,37 +146,9 @@ export class HomePage implements OnInit {
    * @description function to add playlist
    */
   async addPlaylist() {
-    const alert = await this.alertController.create({
-      header: 'Create playlist',
-      inputs: [
-        {
-          name: 'playlist',
-          type: 'text',
-          placeholder: 'Please add playlist name',
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: () => {
-            // Cancel action.
-          },
-        },
-        {
-          text: 'Ok',
-          handler: (data) => {
-            // Call save playlist.
-            if (data.playlist) {
-              this.saveplayList(data.playlist);
-            }
-          },
-        },
-      ],
+    this.userService.addPlayListAlert(() => {
+      this.getPlayList();
     });
-
-    await alert.present();
   }
 
   deletePlaylist(playlist: Playlist) {
@@ -186,18 +156,4 @@ export class HomePage implements OnInit {
     this.userService.savePlayList(this.playList);
   }
 
-  /**
-   * @description function to save data
-   */
-  saveplayList(playlist) {
-    // Creating a random string as id
-    const playListId =
-      Math.random().toString(36).substring(2, 15) +
-      Math.random().toString(36).substring(2, 15);
-    this.playList.push({
-      id: playListId,
-      name: playlist,
-    });
-    this.userService.savePlayList(this.playList);
-  }
 }

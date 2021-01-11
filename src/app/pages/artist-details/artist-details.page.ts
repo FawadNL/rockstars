@@ -57,10 +57,26 @@ export class ArtistDetailsPage implements OnInit {
   }
 
   /**
-   * @description Function to select open playlist alert.
+   * @description Save music to playlist.
    * @param song song object to add
    */
   async addSong(song) {
+    console.log("this.inputRadio", this.inputRadio);
+    if (this.inputRadio && this.inputRadio.length > 0) {
+      this.openSelectPlayListAlert(song);
+    } else {
+      this.userService.addPlayListAlert(() => {
+        this.getPlaylist();
+        this.addSong(song);
+      });
+    }
+  }
+
+  /**
+   * @description Function to select open playlist alert.
+   * @param song song object to add
+   */
+  async openSelectPlayListAlert(song) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Please select playlist',
